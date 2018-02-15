@@ -12,7 +12,7 @@ apps:
   utorrent:
     command: utorrent
     desktop: usr/share/applications/utorrent.desktop
-    plugs: [ wayland, x11, opengl, home, desktop, desktop-legacy, network, network-observe, mount-observe hardware-observe, process-control, cups-control, browser-support ]
+    plugs: [ wayland, x11, opengl, home, desktop, desktop-legacy, network, network-observe, mount-observe, hardware-observe, process-control, cups-control, browser-support ]
 
 parts:
   enable-i386:
