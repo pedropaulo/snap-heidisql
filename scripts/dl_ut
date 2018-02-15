@@ -10,7 +10,7 @@
 #
 
 dlut () {
-    wget --accept "*.exe" --content-disposition --trust-server-names http://download-hr.utorrent.com/track/stable/endpoint/utorrent/os/windows -P usr/share/utorrent &> /dev/null
+    wget --accept "*.exe" --content-disposition --trust-server-names http://download-hr.utorrent.com/track/stable/endpoint/utorrent/os/windows &> /dev/null
     for fnts in andalemo.ttf arialbd.ttf arialbi.ttf ariali.ttf arial.ttf ariblk.ttf comicbd.ttf comic.ttf courbd.ttf courbi.ttf couri.ttf cour.ttf georgiab.ttf georgiai.ttf georgia.ttf georgiaz.ttf impact.ttf l_10646.ttf lucon.ttf micross.ttf symbol.ttf tahomabd.ttf tahoma.ttf timesbd.ttf timesbi.ttf timesi.ttf times.ttf trebucbd.ttf trebucbi.ttf trebucit.ttf trebuc.ttf verdanab.ttf verdanai.ttf verdana.ttf verdanaz.ttf webdings.ttf wingding.ttf
     do
     wget https://github.com/caarlos0-graveyard/msfonts/blob/master/fonts/$fnts?raw=true -P share/wine/fonts &> /dev/null
@@ -19,7 +19,8 @@ dlut () {
 }
 
 mkut () {
-    mv usr/share/utorrent/uTorrent.exe usr/share/utorrent/utorrent.exe
+    7z x uTorrent.exe Carrier.exe -o"usr/share/utorrent"
+    mv usr/share/utorrent/Carrier.exe usr/share/utorrent/utorrent.exe
     find "usr" -type d -execdir chmod 755 {} +
     mkdir -p usr/share/pixmaps && mkdir -p usr/share/applications && mkdir bin
     wrestool -x -t14 -nMAINICON -L0 usr/share/utorrent/utorrent.exe > usr/share/pixmaps/utorrent.ico
