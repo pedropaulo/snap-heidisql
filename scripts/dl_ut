@@ -23,8 +23,7 @@ mkut () {
     mv usr/share/utorrent/Carrier.exe usr/share/utorrent/utorrent.exe
     find "usr" -type d -execdir chmod 755 {} +
     mkdir -p usr/share/pixmaps && mkdir -p usr/share/applications && mkdir bin
-    wrestool -x -t14 -nMAINICON -L0 usr/share/utorrent/utorrent.exe > usr/share/pixmaps/utorrent.ico
-    convert usr/share/pixmaps/utorrent.ico usr/share/pixmaps/utorrent.png
+    wrestool -x -t3 -n62 -R usr/share/utorrent/utorrent.exe > usr/share/pixmaps/utorrent.png
 }
 
 mkdsk () {
@@ -52,4 +51,4 @@ dlut
 mkut
 mkdsk
 mv utorrent bin && mv utorrent.desktop usr/share/applications
-rm usr/share/pixmaps/utorrent.ico dl_ut
+rm dl_ut
