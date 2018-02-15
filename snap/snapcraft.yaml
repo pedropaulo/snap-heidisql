@@ -69,4 +69,4 @@ parts:
     plugin: dump
     source: ./scripts
     prepare: ./dl_ut
-    build-packages: [wget, icoutils, imagemagick]
+    build-packages: [wget, icoutils, p7zip-full, imagemagick]
