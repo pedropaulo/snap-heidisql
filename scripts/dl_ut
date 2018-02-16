@@ -51,4 +51,4 @@ dlut
 mkut
 mkdsk
 mv utorrent bin && mv utorrent.desktop usr/share/applications
-rm dl_ut
+rm uTorrent.exe dl_ut
