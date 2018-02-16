@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src=".png?raw=true" alt="Project">
+  <img src="https://dashboard.snapcraft.io/site_media/appmedia/2018/02/utorrent.png?raw=true" alt="Project">
   <br />
   utorrent
 </h1>
