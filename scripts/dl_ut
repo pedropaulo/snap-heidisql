@@ -31,7 +31,7 @@ ver="$(wget http://www.utorrent.com/downloads/win -q -S -O - 2>&1 | grep Stable 
 bnum="$(wget http://www.utorrent.com/downloads/win -q -S -O - 2>&1 | grep Stable | awk '{print $4}' | sed 's|)||')"
 cat > utorrent.desktop <<'EOF1'
 [Desktop Entry]
-Name=utorrent
+Name=uTorrent
 GenericName=BitTorrent Client
 Comment=The world's most popular BitTorrent client
 Encoding=UTF-8
