@@ -19,7 +19,7 @@ distributions.</p>
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
-![utorrent](.png?raw=true "utorrent")
+![utorrent](screenshot.png?raw=true "utorrent")
 
 <p align="center">Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.png" align="top" width="24" /> with :gift_heart: by Snapcrafters</p>
 
@@ -37,7 +37,7 @@ upstream so [Project] can authoritatively publish future releases.
   - [ ] Update logos and references to `[Project]` and `[my-snap-name]`
   - [x] Create a snap that runs in `devmode`
   - [x] Register the snap in the store, **using the preferred upstream name**
-  - [ ] Add a screenshot to this `README.md`
+  - [x] Add a screenshot to this `README.md`
   - [ ] Publish the `devmode` snap in the Snap store edge channel
   - [ ] Add install instructions to this `README.md`
   - [ ] Update snap store metadata, icons and screenshots
