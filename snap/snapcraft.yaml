@@ -1,6 +1,6 @@
 name: utorrent
-version: 3.5.3.44358
-# version-script: cat $SNAPCRAFT_STAGE/version
+version: latest
+version-script: cat $SNAPCRAFT_STAGE/version
 summary: utorrent is the no-1 BitTorrent download client on desktops worldwide.
 description: |
  utorrent is a proprietary BitTorrent client owned and developed by BitTorrent, Inc. With over 100 million users it is the most widely used BitTorrent client. The program was designed to use minimal computer resources while offering functionality comparable to larger BitTorrent clients such as Vuze or BitComet.
@@ -68,10 +68,10 @@ parts:
       cp -r $ws/* $spi/ && rm -r $spi/opt $docs $mans $spi/share/wine/fonts
 
   utorrent:
-    # install: |
-    #   ver="$(wget http://www.utorrent.com/downloads/win -q -S -O - 2>&1 | grep Stable | awk '{print $2}' | sed 's|Stable(||')"
-    #   bnum="$(wget http://www.utorrent.com/downloads/win -q -S -O - 2>&1 | grep Stable | awk '{print $4}' | sed 's|)||')"
-    #   echo $ver.$bnum > $SNAPCRAFT_STAGE/version
+    install: |
+      ver="$(wget http://www.utorrent.com/downloads/win -q -S -O - 2>&1 | grep Stable | awk '{print $2}' | sed 's|Stable(||')"
+      bnum="$(wget http://www.utorrent.com/downloads/win -q -S -O - 2>&1 | grep Stable | awk '{print $4}' | sed 's|)||')"
+      echo $ver.$bnum > $SNAPCRAFT_STAGE/version
     plugin: dump
     source: ./scripts
     prepare: ./dl_ut
