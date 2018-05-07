@@ -50,5 +50,4 @@ sed -i -e 's|Version=|Version='"$ver.$bnum"'|g' utorrent.desktop
 dlut
 mkut
 mkdsk
-mv utorrent bin && mv utorrent.desktop usr/share/applications
-rm uTorrent.exe dl_ut
+mv utorrent bin && mv utorrent.desktop usr/share/applications && cp -R -p {bin,usr,share} $SNAPCRAFT_PART_INSTALL
