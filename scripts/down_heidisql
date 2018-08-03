@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#
+#
+# Description:
+# download and prepare heidisql for snap
+#
+#
+
+dlheidi () {
+	ver=$(wget https://www.heidisql.com/download.php -q -S -O - 2>&1 | grep '<h1>Download HeidiSQL' | cut -c23-26 | sed 's| -||' | sed 's/ //g')
+	wget https://www.heidisql.com/downloads/releases/HeidiSQL_$ver\_Portable.zip &> /dev/null
+}
+
+
+mkheidi () {
+    7z x HeidiSQL_$ver\_Portable.zip -o"usr/share/heidisql" &> /dev/null
+    #mv usr/share/heidisql/heidisql.exe usr/share/heidisql/heidisql.exe
+    find "usr" -type d -execdir chmod 755 {} +
+    mkdir -p usr/share/pixmaps && mkdir -p usr/share/applications && mkdir bin && mkdir share
+    wrestool -x -t3 -n1 usr/share/heidisql/heidisql.exe --raw > usr/share/pixmaps/heidisql.png
+}
+
+mkdsk () {
+cat > heidisql.desktop <<'EOF1'
+[Desktop Entry]
+Name=HeidiSQL
+GenericName=SQL Client
+Comment=Simple and free SQL Client.
+Encoding=UTF-8
+Version=
+Type=Application
+Terminal=false
+Icon=${SNAP}/usr/share/pixmaps/heidisql.png
+Exec=heidisql %F
+StartupWMClass=heidisql.exe
+Categories=Development
+MimeType=text/sql;
+EOF1
+sed -i -e 's|Version=|Version='"$ver"'|g' heidisql.desktop
+}
+
+dlheidi
+mkheidi
+mkdsk
+mv heidisql bin && mv heidisql.desktop usr/share/applications && cp -R -p {bin,usr,share} $SNAPCRAFT_PART_INSTALL
